@@ -3,28 +3,17 @@
 using namespace std;
 
 int main(){
-	int t, a, b, x, y;
+	unsigned int  a, b, t, moves;
 
 	cin >> t;
-	for(int i = 0; i < t; i++){
+	for(unsigned int i = 0; i < t; i++){
 		cin >> a >> b;
-		int moves = 0;
-		while(a != b){
-			if(a < b && abs(a - b) % 2 != 0){
-				a += abs(a - b);
-				moves++;
-			} else if(a < b && abs(a - b) % 2 == 0){
-				a += (abs(a - b) - 1);
-				moves++;
-			} else if(a > b && abs(a - b) % 2 != 0){
-				a -= (abs(a - b) + 1);
-				moves++;
-			} else if(a > b && abs(a - b) % 2 == 0){
-				a -= abs(a - b);
-				moves++;
-			}
+		if(a % b == 0){
+			cout <<  0 << "\n";
+		} else{
+			moves = b - a % b;
+			cout << moves << "\n";
 		}
-		cout << moves << endl;
 	}
 
 	return 0;
